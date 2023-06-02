@@ -3,9 +3,9 @@ import { connect } from "@planetscale/database";
 
 // create the connection
 const connection = connect({
-  host: "aws.connect.psdb.cloud",
-  username: "grltapp2myqiz5qa3wiw",
-  password: "pscale_pw_dKxcvp0Sbc7fuLii7Pm4gVGIIE0S651BmiF9fsxwjdU",
+  host: process.env["DATABASE_HOST"],
+  username: process.env["DATABASE_USERNAME"],
+  password: process.env["DATABASE_PASSWORD"],
 });
 
 export const db = drizzle(connection);
