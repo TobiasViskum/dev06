@@ -33,7 +33,7 @@ export default async function Home() {
           <div key={index}>
             <h1>Name: {item.name}</h1>
             <h2>Mail: {item.mail}</h2>
-            <Link href={`/${index}`}></Link>
+            <Link href={`/${index}`}>f</Link>
           </div>
         );
       })}
