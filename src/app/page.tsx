@@ -8,12 +8,18 @@ import {
   uniqueIndex,
   varchar,
 } from "drizzle-orm/mysql-core";
+import Link from "next/link";
+import { Metadata } from "next";
 
 const app_data = mysqlTable("app_data", {
   id: serial("id").notNull().autoincrement().primaryKey(),
   name: varchar("name", { length: 255 }),
   mail: varchar("mail", { length: 255 }),
 });
+
+export const metadata: Metadata = {
+  title: "info",
+};
 
 export default async function Home() {
   const result = await db.select().from(app_data);
@@ -27,6 +33,7 @@ export default async function Home() {
           <div key={index}>
             <h1>Name: {item.name}</h1>
             <h2>Mail: {item.mail}</h2>
+            <Link href={`/${index}`}></Link>
           </div>
         );
       })}
